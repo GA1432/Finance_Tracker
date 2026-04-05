@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ─── Sovereign Ledger Design System ─────────────────────────────────── */
+:root {
+  /* Primary — Command Navy */
+  --primary:                  #000666;
+  --primary-container:        #1a237e;
+  --on-primary:               #ffffff;
+  --on-primary-container:     #8690ee;
+  --primary-fixed:            #e0e0ff;
+  --primary-fixed-dim:        #bdc2ff;
+  --inverse-primary:          #bdc2ff;
+
+  /* Secondary — Forest Growth */
+  --secondary:                #2a6b2c;
+  --secondary-container:      #acf4a4;
+  --on-secondary:             #ffffff;
+  --on-secondary-container:   #307231;
+  --secondary-fixed:          #acf4a4;
+  --secondary-fixed-dim:      #91d78a;
+
+  /* Tertiary — Burnished Amber */
+  --tertiary:                 #2d1400;
+  --tertiary-container:       #4b2600;
+  --on-tertiary:              #ffffff;
+  --on-tertiary-container:    #e17e00;
+  --tertiary-fixed:           #ffdcc2;
+  --tertiary-fixed-dim:       #ffb77a;
+
+  /* Error */
+  --error:                    #ba1a1a;
+  --error-container:          #ffdad6;
+  --on-error:                 #ffffff;
+  --on-error-container:       #93000a;
+
+  /* Surface Hierarchy */
+  --surface:                  #f8f9fb;
+  --surface-bright:           #f8f9fb;
+  --surface-dim:              #d8dadc;
+  --surface-variant:          #e0e3e5;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low:    #f2f4f6;
+  --surface-container:        #eceef0;
+  --surface-container-high:   #e6e8ea;
+  --surface-container-highest:#e0e3e5;
+  --surface-tint:             #4c56af;
+
+  /* On Surface */
+  --on-surface:               #191c1e;
+  --on-surface-variant:       #454652;
+  --on-background:            #191c1e;
+  --background:               #f8f9fb;
+
+  /* Outline */
+  --outline:                  #767683;
+  --outline-variant:          #c6c5d4;
+
+  /* Inverse */
+  --inverse-surface:          #2d3133;
+  --inverse-on-surface:       #eff1f3;
+
+  /* Typography */
+  --font-display:             'Manrope', sans-serif;
+  --font-body:                'Inter', sans-serif;
+
+  /* Shadows — Sovereign Shadow */
+  --shadow-sovereign:         0 8px 32px -4px rgba(25, 28, 30, 0.04);
+  --shadow-elevated:          0 16px 48px -8px rgba(0, 6, 102, 0.08);
+
+  /* Radius */
+  --radius-sm:                2px;
+  --radius-md:                4px;
+  --radius-lg:                8px;
+  --radius-xl:                12px;
+  --radius-2xl:               16px;
+  --radius-full:              9999px;
+
+  /* Spacing */
+  --spacing-xs:               0.25rem;
+  --spacing-sm:               0.5rem;
+  --spacing-md:               1rem;
+  --spacing-lg:               1.5rem;
+  --spacing-xl:               2rem;
+  --spacing-2xl:              3rem;
+}
+
+/* ─── Base Reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--surface);
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: -0.02em;
+}
+
+/* ─── Typography Scale ────────────────────────────────────────────────── */
+.display-lg  { font-family: var(--font-display); font-size: 3.5rem;   line-height: 1.1;  font-weight: 800; letter-spacing: -0.03em; }
+.display-md  { font-family: var(--font-display); font-size: 2.5rem;   line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+.display-sm  { font-family: var(--font-display); font-size: 1.75rem;  line-height: 1.2;  font-weight: 700; letter-spacing: -0.02em; }
+.headline-lg { font-family: var(--font-display); font-size: 1.25rem;  line-height: 1.3;  font-weight: 600; }
+.headline-md { font-family: var(--font-display); font-size: 1rem;     line-height: 1.4;  font-weight: 600; }
+.body-lg     { font-family: var(--font-body);    font-size: 1rem;     line-height: 1.6;  font-weight: 400; }
+.body-md     { font-family: var(--font-body);    font-size: 0.875rem; line-height: 1.6;  font-weight: 400; }
+.label-lg    { font-family: var(--font-body);    font-size: 0.875rem; line-height: 1.4;  font-weight: 500; letter-spacing: 0.01em; }
+.label-md    { font-family: var(--font-body);    font-size: 0.75rem;  line-height: 1.4;  font-weight: 500; letter-spacing: 0.02em; }
+.label-sm    { font-family: var(--font-body);    font-size: 0.6875rem;line-height: 1.4;  font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ─── Surface Utilities ───────────────────────────────────────────────── */
+.surface                 { background: var(--surface); }
+.surface-low             { background: var(--surface-container-low); }
+.surface-container       { background: var(--surface-container); }
+.surface-high            { background: var(--surface-container-high); }
+.surface-highest         { background: var(--surface-container-highest); }
+.surface-white           { background: var(--surface-container-lowest); }
+
+/* ─── Glassmorphism ───────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(198, 197, 212, 0.15);
+}
+
+.glass-navy {
+  background: rgba(0, 6, 102, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(189, 194, 255, 0.10);
+}
+
+/* ─── Signature Gradient ──────────────────────────────────────────────── */
+.gradient-sovereign {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+}
+
+.gradient-growth {
+  background: linear-gradient(135deg, var(--secondary) 0%, #1b5e20 100%);
+}
+
+/* ─── Sovereign Shadow ────────────────────────────────────────────────── */
+.shadow-sovereign { box-shadow: var(--shadow-sovereign); }
+.shadow-elevated  { box-shadow: var(--shadow-elevated); }
+
+/* ─── Ghost Border ────────────────────────────────────────────────────── */
+.ghost-border {
+  border: 1px solid rgba(198, 197, 212, 0.15);
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover { background: var(--primary-container); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.btn-secondary:hover { background: var(--surface-container); }
+.btn-secondary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn-ghost:hover { background: var(--surface-container-low); color: var(--on-surface); }
+
+/* ─── Input Fields ────────────────────────────────────────────────────── */
+.input-sovereign {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--surface-container-lowest);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--surface-container-high);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+.input-sovereign:focus {
+  border-color: var(--primary-container);
+  box-shadow: 0 0 0 3px rgba(76, 86, 175, 0.12);
+}
+.input-sovereign::placeholder { color: var(--outline); }
+
+/* ─── Progress Bar ────────────────────────────────────────────────────── */
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: var(--secondary-container);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--secondary);
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-fill-sovereign {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-container) 100%);
+  border-radius: var(--radius-full);
+}
+
+/* ─── Status Indicators ───────────────────────────────────────────────── */
+.badge-positive {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  background: var(--secondary-container);
+  color: var(--secondary);
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  border-radius: var(--radius-full);
+}
+.badge-negative {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  background: var(--error-container);
+  color: var(--error);
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  border-radius: var(--radius-full);
+}
+.badge-neutral {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  border-radius: var(--radius-full);
+}
+
+/* ─── Pay Yourself First Accent ───────────────────────────────────────── */
+.pyf-card {
+  background: var(--surface-container-lowest);
+  border-left: 3px solid var(--tertiary-fixed-dim);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* ─── Ledger Entry Alternating ────────────────────────────────────────── */
+.ledger-row-a { background: var(--surface-container-low); }
+.ledger-row-b { background: var(--surface-container-lowest); }
+
+/* ─── Animations ──────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-up   { animation: fadeUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.animate-slide-in  { animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.animate-pulse-sub { animation: pulse-subtle 2s ease-in-out infinite; }
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ─── App Layout ──────────────────────────────────────────────────────── */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 50;
+  transition: width 0.3s ease;
+}
+
+.sidebar-logo {
+  padding: 1.75rem 1.5rem 1.5rem;
+  border-bottom: 1px solid rgba(189, 194, 255, 0.08);
+}
+
+.sidebar-logo .logo-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--on-primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-logo .logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: rgba(189, 194, 255, 0.6);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius-md);
+  color: rgba(189, 194, 255, 0.7);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-item:hover {
+  background: rgba(189, 194, 255, 0.08);
+  color: var(--on-primary);
+}
+.nav-item.active {
+  background: rgba(189, 194, 255, 0.12);
+  color: var(--on-primary);
+  font-weight: 600;
+}
+.nav-item .nav-icon { font-size: 1.25rem; flex-shrink: 0; }
+
+.sidebar-footer {
+  padding: 1rem 0.75rem;
+  border-top: 1px solid rgba(189, 194, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-user {
+  padding: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.sidebar-user .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary-fixed-dim), var(--primary-container));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--on-primary);
+  flex-shrink: 0;
+}
+.sidebar-user .user-name {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--on-primary);
+}
+.sidebar-user .user-role {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: rgba(189, 194, 255, 0.6);
+  margin-top: 1px;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+.page-header {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid rgba(198, 197, 212, 0.15);
+}
+
+.page-body {
+  padding: 2rem 2.5rem;
+}
+
+/* ─── KPI Cards ───────────────────────────────────────────────────────── */
+.kpi-card {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sovereign);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.kpi-card-hero {
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  color: var(--on-primary);
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--outline); }
+
+/* ─── Footer Link Hover ──────────────────────────────────────────────── */
+.footer-link {
+  color: rgba(189,194,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: var(--on-primary); }
+
+/* ─── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar { width: 64px; }
+  .sidebar-logo .logo-title,
+  .sidebar-logo .logo-subtitle,
+  .nav-item span,
+  .sidebar-user .user-name,
+  .sidebar-user .user-role { display: none; }
+  .main-content { margin-left: 64px; }
+  .page-header, .page-body { padding: 1.25rem; }
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",              // 👈 Critical fix
+    "moduleResolution": "node",        // 👈 Match NestJS expectations
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,     // 👈 Required for NestJS DI
+    "experimentalDecorators": true,    // 👈 Required for @Controller, @Injectable
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",// 👈 Stable target (ES2023 can cause edge issues)
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false
+  }
+}
